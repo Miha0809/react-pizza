@@ -6,8 +6,8 @@ import "./scss/app.scss";
 
 function Sort() {
   return (
-    <div class="sort">
-      <div class="sort__label">
+    <div className="sort">
+      <div className="sort__label">
         <svg
           width="10"
           height="6"
@@ -23,9 +23,9 @@ function Sort() {
         <b>Сортировка по:</b>
         <span>популярности</span>
       </div>
-      <div class="sort__popup">
+      <div className="sort__popup">
         <ul>
-          <li class="active">популярности</li>
+          <li className="active">популярности</li>
           <li>цене</li>
           <li>алфавиту</li>
         </ul>
@@ -36,16 +36,16 @@ function Sort() {
 
 function App() {
   return (
-    <div class="wrapper">
+    <div className="wrapper">
       <Header />
-      <div class="content">
-        <div class="container">
-          <div class="content__top">
+      <div className="content">
+        <div className="container">
+          <div className="content__top">
             <Categories />
             <Sort />
           </div>
-          <h2 class="content__title">Все пиццы</h2>
-          <div class="content__items">
+          <h2 className="content__title">Все пиццы</h2>
+          <div className="content__items">
             <PizzaBlock title="Мексиканська" price={500} />
             <PizzaBlock titile="" />
             <PizzaBlock />
