@@ -11,10 +11,11 @@ export const PizzaBlock = ({ title, imageUrl, typeIndexs, sizes, price }) => {
       <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
         <ul>
-          {typeIndexs.map((type) => (
+          {typeIndexs.map((type, index) => (
             <li
-              className={activeDoughIndex === type ? "active" : ""}
-              onClick={() => setActiveDoughIndex(type)}
+              key={index}
+              className={activeDoughIndex === index ? "active" : ""}
+              onClick={() => setActiveDoughIndex(index)}
             >
               {typeNames[type]}
             </li>
@@ -23,6 +24,7 @@ export const PizzaBlock = ({ title, imageUrl, typeIndexs, sizes, price }) => {
         <ul>
           {sizes.map((size, index) => (
             <li
+              key={index}
               className={activeSizeIndex === index ? "active" : ""}
               onClick={() => setActiveSizeIndex(index)}
             >
