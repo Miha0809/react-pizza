@@ -14,8 +14,8 @@ export const PizzaBlock = ({ title, imageUrl, typeIndexs, sizes, price }) => {
           {typeIndexs.map((type, index) => (
             <li
               key={index}
-              className={activeDoughIndex === index ? "active" : ""}
-              onClick={() => setActiveDoughIndex(index)}
+              className={activeDoughIndex === type ? "active" : ""}
+              onClick={() => setActiveDoughIndex(type)}
             >
               {typeNames[type]}
             </li>
