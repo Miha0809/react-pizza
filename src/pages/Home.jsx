@@ -17,10 +17,12 @@ export const Home = () => {
         setIsLoading(false);
         setPizzas(json);
       });
+
+    window.scrollTo(0, 0);
   }, []);
 
   return (
-    <>
+    <div className="container">
       <div className="content__top">
         <Categories />
         <Sort />
@@ -40,6 +42,6 @@ export const Home = () => {
               />
             ))}
       </div>
-    </>
+    </div>
   );
 };
