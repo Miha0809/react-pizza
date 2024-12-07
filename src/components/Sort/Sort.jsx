@@ -1,13 +1,18 @@
 import { useState } from "react";
 
-export const Sort = () => {
-  const sortModes = ["популярності", "ціні", "алфабіту"];
-
+export const Sort = ({ type, onChangeSort }) => {
+  const sortTypes = [
+    { name: "популярності (ASC)", sortBy: "rating", order: "asc" },
+    { name: "популярності (DESC)", sortBy: "rating", order: "desc" },
+    { name: "ціні (ASC)", sortBy: "price", order: "asc" },
+    { name: "ціні (DESC)", sortBy: "price", order: "desc" },
+    { name: "алфабіту (ASC)", sortBy: "title", order: "asc" },
+    { name: "алфабіту (DESC)", sortBy: "title", order: "desc" },
+  ];
   const [isOpen, setIsOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
 
-  const onClickSortMode = (index) => {
-    setActiveIndex(index);
+  const onClickSortMode = (type) => {
+    onChangeSort(type);
     setIsOpen(false);
   };
 
@@ -27,18 +32,18 @@ export const Sort = () => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={() => setIsOpen(!isOpen)}>{sortModes[activeIndex]}</span>
+        <span onClick={() => setIsOpen(!isOpen)}>{type.name}</span>
       </div>
       {isOpen && (
         <div className="sort__popup">
           <ul>
-            {sortModes.map((mode, index) => (
+            {sortTypes.map((obj, i) => (
               <li
-                key={index}
-                className={activeIndex === index ? "active" : ""}
-                onClick={() => onClickSortMode(index)}
+                key={i}
+                className={obj.name === type.name ? "active" : ""}
+                onClick={() => onClickSortMode(obj)}
               >
-                {mode}
+                {obj.name}
               </li>
             ))}
           </ul>
